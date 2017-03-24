@@ -1,0 +1,61 @@
+name:                markdown
+version:             0.1.0.0
+-- synopsis:
+-- description:
+homepage:            https://github.com/githubuser/markdown#readme
+license:             BSD3
+license-file:        LICENSE
+author:              Author name here
+maintainer:          example@example.com
+copyright:           2017 Author name here
+category:            Web
+build-type:          Simple
+-- extra-source-files:  README.md
+cabal-version:       >=1.10
+
+library
+  hs-source-dirs:      lib
+  exposed-modules:     Lib, Selection
+  build-depends:       base >= 4.7 && < 5
+                     , split
+                     , MissingH
+                     , base64-bytestring
+                     , bytestring
+                     , directory
+  default-language:    Haskell2010
+
+executable pandoc-iframe
+  main-is:             filters/pandoc-iframe.hs
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
+  build-depends:       base
+                     , pandoc-types
+                     , markdown
+  default-language:    Haskell2010
+
+executable pandoc-caption
+  main-is:             filters/pandoc-caption.hs
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
+  build-depends:       base
+                     , pandoc-types
+                     , markdown
+  default-language:    Haskell2010
+
+executable pandoc-sourceable
+  main-is:             filters/pandoc-sourceable.hs
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
+  build-depends:       base
+                     , pandoc-types
+                     , markdown
+  default-language:    Haskell2010
+
+executable pandoc-include
+  main-is:             filters/pandoc-include.hs
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
+  build-depends:       base
+                     , pandoc-types
+                     , markdown
+                     , directory
+                     , unix
+                     , process
+                     , filepath
+  default-language:    Haskell2010
